@@ -167,6 +167,15 @@
             <fieldset>
                 @if($user->profile->role_type == 1)
                     <legend>When?</legend>
+                    <div class="form-check">
+                        <input class="form-check-input child_gender" type="radio" name="child_gender" id="0" value="0">
+                        <label class="form-check-label" for="0">Girl</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="hidden" name="token" id="token" value="{{ Session::get('token') }}">
+                        <input class="form-check-input child_gender" type="radio" name="child_gender" id="1" value="1">
+                        <label class="form-check-label" for="1">Boy</label>
+                    </div>
 
 
                 @elseif($user->profile->role_type == 0)

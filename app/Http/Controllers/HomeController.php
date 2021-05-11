@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ChildrenIntrest;
 use App\Models\Profile;
+use App\Models\ScheduleType;
 use App\Models\UserChild;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -31,9 +32,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $schedule_type = ScheduleType::all();
         $token = $user->createToken('token-name');
         Session::put('token', $token->plainTextToken);
-        return view('home', compact('user'));
+        return view('home', compact('user','schedule_type'));
     }
     public function webrole(){
         return view('webrole');
